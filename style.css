@@ -1,341 +1,195 @@
 :root {
-    --black: #000;
-    --white: #fff;
-  }
-  
-  /* RESET */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--black);
-  }
-  
-  .hero {
-    height: 750px;
-    display: flex;
-    align-items: flex-start;
-    padding: 10px;
-    width: 100vw;
-    margin: 0;
-    background: linear-gradient(
-      45deg,
-      #000000 0%,
-      #111111 25%,
-      #2a2a2a 50%, 
-      #111111 75%,
-      #000000 100%
-    );
-    background-size: 200% 200%;
-    animation: hero-background 6s ease infinite;
-  }
-  
-  @keyframes hero-background {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-   .hero-text {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 80px;
-    margin-top: 70px;
-    color: #fff;
-    }
-
-    .hero-bottom-text {
-        margin-top: 40px; /* razmak ispod slike */
-        margin-left: calc(
-          ((1440px - 160px - 120px) / 3) + 60px
-        ); 
-        /* pomeraj do leve ivice DRUGOG kvadrata */
-      
-        max-width: calc(
-          ((1440px - 160px - 120px) / 3) * 2 + 60px
-        );
-        /* širina = 2 kolone + gap */
-      
-        color: #ffffff;
-        font-size: 32px;
-        line-height: 1.25;
-        font-weight: 400;
-      }
-
-      .scramble-text {
-        font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
-        font-weight: 400;
-        font-size: 18px;
-        opacity: 0;
-        transition: opacity 0.6s ease-out;
-      }
-
-      .hero-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 60px;
-        margin-top: 40px;
-        max-width: 100%;
-      }
-      
-      .hero-grid img {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        display: block;
-      }
-
-      .hero-grid img {
-        transition:
-          transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-          filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-        will-change: transform, filter;
-      }
-      
-      .hero-grid img:hover {
-        transform: translateY(-4px) scale(1.015);
-        filter: brightness(1.06);
-      }
-      
-
-  .hero-image {
-    margin-top: 40px;
-    width: 100%;
-    max-width: calc((1440px - 160px - 120px) / 3); 
-    /* 1440px = max-width .portfolio/.hero-inner
-    160px = 2 * padding (80px)
-    120px = gap između 3 grid kolone (2 * 60px) */
-    }
-      
-  .hero-image img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    display: block;
-    }
-
-  .hero h1 {
-    font-size: 86px;
-    font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif; 
-    font-weight: 700;
-    font-style: normal;
-    text-shadow:
-    0 0 8px rgba(255,255,255,0.18),
-    0 0 20px rgba(255,255,255,0.08);
-    animation: glowPulse 4s ease-in-out infinite;
-  }
-
-  .hero p {
-    font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    font-size: 16.5px;
-    color: #b3b3b2;
-  }
-
-  .portfolio {
-    max-width: 1440px;
-    margin: 30px auto;
-    padding: 0 80px;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 60px;
-  }
-  
-  .intro-text {
-    max-width: 1440px;
-    margin: 0 auto;
-    color: #888888;
-    font-size: 25px;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-top: 20px;  
-    margin-bottom: -2px;
-    text-align: left; 
-    font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    }
-  
-  .portfolio .grid {
-    margin-top: 20px; 
-  }
-
-  .item {
-    cursor: pointer;
-  }
-  
-  /* THUMB */
-  .thumb {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background: #e5e5e5;
-  }
-  
-  /* HEADLINE (isti stil svuda) */
-  .headline {
-    margin-top: 12px;
-    font-size: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-  }
-  
-  /* EXPANDED VIEW */
-  .expanded {
-    grid-column: 1 / -1;
-    margin-top: 40px;
-    display: none;
-  }
-  
-  .expanded.active {
-    display: block;
-  }
-  
-  /* CAROUSEL */
-  .carousel {
-    max-width: 900px;
-    margin-bottom: 24px;
-  }
-  
-  .carousel img {
-    width: 100%;
-    display: none;
-  }
-  
-  .carousel img.active {
-    display: block;
-  }
-  
-  .carousel-controls {
-    display: flex;
-    gap: 20px;
-    margin-top: 12px;
-  }
-  
-  .carousel-controls button {
-    background: none;
-    border: 1px solid var(--black);
-    padding: 6px 12px;
-    cursor: pointer;
-  }
-  
-  /* TEXT */
-  .description {
-    max-width: 900px;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .text-strip {
-    height: 16vh;
-    display: flex;
-    align-items: center;
-  
-    background: #000;      /* ista vizuelna baza */
-    color: #b3b3b2;        /* ista boja teksta */
-  }
-  
-  .text-strip-inner {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 80px;
-  
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-  }
-  
-  .text-line {
-    font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-  }
-
-  .text-strip-inner .text-line {
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-                color 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    cursor: default; /* da ne izgleda kao link */
-  }
-  
-  .text-strip-inner .text-line:hover {
-    transform: translateY(-4px) scale(1.015);
-    color: #fff; /* malo svetlije kada hoveruješ */
-  }
-
-  .behance-content {
-    width: 1000px;       
-    margin: 0 auto;       
-    padding: 0;          
-  }
-  
-  .behance-content h1 {
-    font-size: 48px;
-    margin-top: 40px;
-    margin-bottom: 10px;
-    font-weight: 700;
-    font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
-  }
-  
-  .behance-images {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  
-  .behance-images img {
-    width: 1000px;       
-    display: block;
-    object-fit: cover;
-    margin: 0;   
-    padding: 0;    
-    border: none;    
-  }
-  
-  .behance-images img:first-child {
-    margin-top: 40px;   
-  }
-
-  
-
-  /* Kvadrat za portfolio item */
-.item .thumb {
-  width: 100%;
-  aspect-ratio: 1 / 1;       /* zadržava kvadrat */
-  overflow: hidden;           /* seče višak slike */
-  position: relative;         /* da slika može biti apsolutno pozicionirana */
+  --black: #000;
+  --white: #fff;
 }
 
-/* Slika unutar kvadrata */
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--black);
+}
+
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+  height: 750px;
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  width: 100vw;
+  margin: 0;
+  background: linear-gradient(
+    45deg,
+    #000000 0%,
+    #111111 25%,
+    #2a2a2a 50%,
+    #111111 75%,
+    #000000 100%
+  );
+  background-size: 200% 200%;
+  animation: hero-background 6s ease infinite;
+}
+
+@keyframes hero-background {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-text {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+  margin-top: 70px;
+  color: #fff;
+}
+
+.hero-bottom-text {
+  margin-top: 40px;
+  margin-left: calc(((1440px - 160px - 120px) / 3) + 60px);
+  max-width: calc(((1440px - 160px - 120px) / 3) * 2 + 60px);
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.scramble-text {
+  font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  margin-top: 40px;
+  max-width: 100%;
+}
+
+.hero-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, filter;
+}
+
+.hero-grid img:hover {
+  transform: translateY(-4px) scale(1.015);
+  filter: brightness(1.06);
+}
+
+.hero-image {
+  margin-top: 40px;
+  width: 100%;
+  max-width: calc((1440px - 160px - 120px) / 3);
+}
+
+.hero-image img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.hero h1 {
+  font-size: 86px;
+  font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.18),
+    0 0 20px rgba(255,255,255,0.08);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.hero p {
+  font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16.5px;
+  color: #b3b3b2;
+}
+
+/* ==============================
+   PORTFOLIO
+   ============================== */
+
+.portfolio {
+  max-width: 1440px;
+  margin: 30px auto;
+  padding: 0 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 60px;
+}
+
+.intro-text {
+  max-width: 1440px;
+  margin: 0 auto;
+  color: #888888;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 20px;
+  margin-bottom: -2px;
+  text-align: left;
+  font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
+}
+
+.portfolio .grid {
+  margin-top: 20px;
+}
+
+.item {
+  cursor: pointer;
+}
+
+/* THUMB */
+.thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #e5e5e5;
+}
+
+.item .thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+}
+
 .item .thumb img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* popunjava kvadrat bez deformacije */
+  object-fit: cover;
 }
-
 
 /* Portfolio kvadrati crno-beli po defaultu */
 .portfolio .item .thumb img {
-  filter: grayscale(100%);        /* crno-belo */
+  filter: grayscale(100%);
   transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
               filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform, filter;
@@ -343,8 +197,210 @@
 
 /* Hover efekat */
 .portfolio .item:hover .thumb img {
-  transform: translateY(-4px) scale(1.015);   /* isti kao u hero grid */
-  filter: grayscale(0%) brightness(1.06);     /* boja se vraća + malo svetlije */
+  transform: translateY(-4px) scale(1.015);
+  filter: grayscale(0%) brightness(1.06);
+}
+
+/* HEADLINE */
+.headline {
+  margin-top: 12px;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+/* EXPANDED VIEW */
+.expanded {
+  grid-column: 1 / -1;
+  margin-top: 40px;
+  display: none;
+}
+
+.expanded.active {
+  display: block;
+}
+
+/* CAROUSEL */
+.carousel {
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+
+.carousel img {
+  width: 100%;
+  display: none;
+}
+
+.carousel img.active {
+  display: block;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.carousel-controls button {
+  background: none;
+  border: 1px solid var(--black);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* TEXT */
+.description {
+  max-width: 900px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ==============================
+   TEXT STRIP
+   ============================== */
+
+.text-strip {
+  height: 16vh;
+  display: flex;
+  align-items: center;
+  background: #000;
+  color: #b3b3b2;
+}
+
+.text-strip-inner {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.text-line {
+  font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.text-strip-inner .text-line {
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: default;
+}
+
+.text-strip-inner .text-line:hover {
+  transform: translateY(-4px) scale(1.015);
+  color: #fff;
+}
+
+/* ==============================
+   FULLSCREEN PROJECT (overlay)
+   ============================== */
+
+.behance-content {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.behance-content h1 {
+  font-size: 48px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
+}
+
+.behance-images {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.behance-images img {
+  width: 1000px;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.behance-images img:first-child {
+  margin-top: 40px;
+}
+
+/* ==============================
+   ABOUT / CTA SECTION
+   ============================== */
+
+.about {
+  background: #000;
+  color: #fff;
+  padding: 120px 20px;
+  margin-top: 60px;
+}
+
+.about-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-inner p {
+  font-family: "neue-haas-grotesk-text", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.about-inner p strong {
+  font-weight: 700;
+}
+
+.about-inner .about-ps {
+  font-size: 16px;
+  color: #b3b3b2;
+  margin-top: 60px;
+  margin-bottom: 0;
+}
+
+/* ==============================
+   SOCIAL ICONS
+   ============================== */
+
+.social-icons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.social-icons a {
+  color: #b3b3b2;
+  display: block;
+  width: 28px;
+  height: 28px;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.social-icons a:hover {
+  color: #fff;
+  transform: translateY(-4px) scale(1.1);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 40px auto 0;   /* auto levo i desno = kutija na sredini */
+  max-width: 800px;
 }
 
 /* ==============================
@@ -426,7 +482,7 @@
   }
 
   .headline {
-    white-space: normal; /* da se naslov ne seče */
+    white-space: normal;
   }
 
   /* Na touch uređajima nema hovera, pa slike odmah u boji */
@@ -459,5 +515,28 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
+  }
+
+  /* About */
+  .about {
+    padding: 70px 20px;
+  }
+
+  .about-inner p {
+    font-size: 18px;
+  }
+
+  .about-inner br {
+    display: none;
+  }
+
+   /* Social */
+   .social-icons {
+    gap: 24px;
+  }
+
+  .social-icons a {
+    width: 32px;
+    height: 32px;
   }
 }
